@@ -1,0 +1,19 @@
+{
+  "name": "backend-developer",
+  "version": "1.0.0",
+  "description": "Klink Backend Developer Coding Challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "data:generate": "node src/generate-data.js"
+  },
+  "author": "Klink Finance LTD",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.4.0"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "underscore": "^1.13.6"
+  }
+}
