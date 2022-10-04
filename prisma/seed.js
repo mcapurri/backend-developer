@@ -4,31 +4,10 @@ const prisma = new PrismaClient();
 
 const Employees = require("../data/payroll.json");
 
-type Employee = {
-  userId: string;
-  username: string;
-  email: string;
-  avatar: string;
-  password: string;
-  birthdate: string;
-  registeredAt: string;
-  position: string;
-  salary: {
-    amount: string;
-  };
-  bank: {
-    iban: string;
-    bic: string;
-  };
-  crypto: {
-    bitcoinAddress: string;
-  };
-};
-
 async function seeder() {
   await Promise.all(
     Employees.map(
-      async (employee: Employee) =>
+      async (employee) =>
         await prisma.employee.create({
           data: {
             userId: employee.userId,
