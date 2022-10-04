@@ -11,13 +11,14 @@ datasource db {
 }
 
 model Employee {
-  userId   String     @id @default(uuid())
+  id   Int     @id @default(autoincrement())
+  userId String
   username String
   email String  @unique
   avatar  String
   password  String
   birthdate  String
-  registeredAt  DateTime
+  registeredAt  DateTime @default(now())
   position  String
   salary Salary?
   bank Bank?
@@ -25,20 +26,23 @@ model Employee {
 
 }
 model Salary {
-  id String  @id @default(uuid()) 
-  userId String @unique
-  amount Employee  @relation(fields: [userId], references: [userId])
+  id   Int     @id @default(autoincrement())
+  employeeId Int @unique
+  employee Employee   @relation(fields: [employeeId], references: [id])
+  amount String
 }
 
 model Bank {
-  id String  @id @default(uuid())
-  userId String @unique
-  iban Employee   @relation(fields: [userId], references: [userId])
+  id   Int     @id @default(autoincrement())
+  employeeId Int @unique
+  employee Employee   @relation(fields: [employeeId], references: [id])
+  iban String
   bic String   
 }
 
 model Crypto  {
-  id String  @id @default(uuid())
-  userId String @unique
-  bitcoinAddress Employee   @relation(fields: [userId], references: [userId])
+  id   Int     @id @default(autoincrement())
+  employeeId Int @unique
+  employee Employee   @relation(fields: [employeeId], references: [id])
+  bitcoinAddress String
 }

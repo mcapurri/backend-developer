@@ -7,6 +7,9 @@
     "start": "node src/app.js",
     "data:generate": "node src/generate-data.js"
   },
+  "prisma": {
+    "seed": "ts-node ./prisma/seed.ts"
+  },
   "author": "Klink Finance LTD",
   "license": "ISC",
   "devDependencies": {
