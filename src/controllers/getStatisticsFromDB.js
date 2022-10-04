@@ -1,7 +1,6 @@
 const _ = require("underscore");
 
 const { PrismaClient } = require("@prisma/client");
-const { response } = require("express");
 const prisma = new PrismaClient();
 
 const getStatisticsFromDB = async () => {
