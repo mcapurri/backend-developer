@@ -17,6 +17,11 @@ Generate the data for the app.
 ```
 npm run data:generate
 ```
+Migrate and Seed the database
+
+```
+npm run db:migrate
+```
 
 To start the web application, use the following command.
 
