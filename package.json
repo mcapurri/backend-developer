@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
-    "data:generate": "node src/generate-data.js"
+    "data:generate": "node src/generate-data.js",
+    "db:migrate": "prisma migrate dev --name init",
+    "db:seed": "prisma db seed"
   },
   "prisma": {
     "seed": "ts-node ./prisma/seed.ts"

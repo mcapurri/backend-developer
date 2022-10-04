@@ -13,20 +13,16 @@ type Employee = {
   birthdate: string;
   registeredAt: string;
   position: string;
-  salary: Salary;
-  bank: Bank;
-  crypto: Crypto;
-};
-
-type Salary = {
-  amount: string;
-};
-type Bank = {
-  iban: string;
-  bic: string;
-};
-type Crypto = {
-  bitcoinAddress: string;
+  salary: {
+    amount: string;
+  };
+  bank: {
+    iban: string;
+    bic: string;
+  };
+  crypto: {
+    bitcoinAddress: string;
+  };
 };
 
 async function seeder() {
