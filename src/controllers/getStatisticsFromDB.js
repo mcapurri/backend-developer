@@ -1,4 +1,4 @@
-const _ = require("underscore");
+const getEmployeesStatistics = require("./index");
 
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -24,41 +24,11 @@ getStatisticsFromDB()
   .then((response) => {
     numberEmployees = Object.values(response).length;
 
-    salarySum = _.chain(response)
-      .reduce((sum, user) => {
-        return sum + parseFloat(user.salary.amount);
-      }, 0)
-      .value();
+    const statistics = getEmployeesStatistics(response);
 
-    averageSalary = (salarySum / Object.values(response).length).toFixed(2);
-
-    const positions = _.chain(response)
-      .map((user) => {
-        return user.position;
-      })
-      .uniq()
-      .value();
-
-    const avgSalaries = positions.map((pos) => {
-      const averSal = _.where(response, { position: pos })
-        .reduce((sum, user) => {
-          return (
-            sum +
-            parseFloat(user.salary.amount) /
-              _.where(response, { position: pos }).length
-          );
-        }, 0)
-        .toFixed(2);
-
-      return { position: pos, avgSalary: `${averSal} €` };
-    });
-
-    avgSalaries.forEach((profession) => {
-      avgSalariesByPosition = {
-        ...avgSalariesByPosition,
-        [profession.position]: profession.avgSalary,
-      };
-    });
+    salarySum = statistics.salarySum;
+    averageSalary = statistics.averageSalary;
+    avgSalariesByPosition = statistics.avgSalariesByPosition;
   })
   .catch((e) => {
     console.error(`There was an error while querying: ${e}`);
