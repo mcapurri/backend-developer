@@ -6,7 +6,6 @@ function getEmployeesStatistics(payroll) {
       return sum + parseFloat(user.salary.amount);
     }, 0)
     .value();
-  console.log(_.chain(payroll));
   const averageSalary = (salarySum / Object.values(payroll).length).toFixed(2);
 
   const positions = _.chain(payroll)
