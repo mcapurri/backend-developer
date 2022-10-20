@@ -1,6 +1,6 @@
-# Klink Backend Developer Coding Challenge
+# Backend Developer Coding Challenge
 
-Welcome to the Klink backend coding challenge.
+Welcome to the *** backend coding challenge.
 
 The assignment consists of a simple web application and helper scripts to automate the most common tasks. Feel free to modify the project for your convenience while keeping focused on the assignment goals.
 
@@ -68,4 +68,3 @@ You can share the code on your GitHub private repository.
 
 Good luck! 
 
-If you have any questions about the assignment, please email us at [michal@klinkfinance.com](mailto:michal@klinkfinance.com).
